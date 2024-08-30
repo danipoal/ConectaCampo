@@ -27,7 +27,7 @@ const ProfileFollowList = ({ type }: { type?: string }) => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/v1/user/all",
+        "http://94.143.138.55:8080/api/v1/user/all",
         requestOptions
       );
       const result = await response.json();

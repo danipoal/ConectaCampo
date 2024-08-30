@@ -101,7 +101,7 @@ const Register = () => {
       };
 
       const response = await fetch(
-        "http://localhost:8080/api/v1/user",
+        "http://94.143.138.55:8080/api/v1/user",
         requestOptions
       );
       if (!response.ok) {

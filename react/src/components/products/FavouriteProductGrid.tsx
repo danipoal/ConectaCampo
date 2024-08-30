@@ -9,7 +9,7 @@ const FavouriteProductGrid = ({ userId, allUsers ,  products }: { userId: number
   // Función para obtener todas las publicaciones desde el backend
   const fetchAllPublications = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/v1/publication/all");
+      const response = await fetch("http://94.143.138.55:8080/api/v1/publication/all");
       const data = await response.json();
       if (Array.isArray(data)) {
         setPublications(data); // Guardar las publicaciones obtenidas en el estado

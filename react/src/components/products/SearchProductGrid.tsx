@@ -25,7 +25,7 @@ const SearchProductGrid = ({
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/v1/product/all"
+          "http://94.143.138.55:8080/api/v1/product/all"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -45,7 +45,7 @@ const SearchProductGrid = ({
 
         // Hacer solicitudes para obtener las imágenes de los usuarios
         const userImagesPromises = userIds.map((userId: number) =>
-          fetch(`http://localhost:8080/api/v1/user/id/${userId}`)
+          fetch(`http://94.143.138.55:8080/api/v1/user/id/${userId}`)
             .then((response) => response.json())
             .then((userData: UserData) => ({
               userId,
@@ -64,7 +64,7 @@ const SearchProductGrid = ({
         // Hacer solicitudes para obtener las imágenes de las publicaciones
         const publicationImagesPromises = publicationIds.map(
           (publicationId: number) =>
-            fetch(`http://localhost:8080/api/v1/publication/${publicationId}`)
+            fetch(`http://94.143.138.55:8080/api/v1/publication/${publicationId}`)
               .then((response) => response.json())
               .then((publicationData) => ({
                 publicationId,
