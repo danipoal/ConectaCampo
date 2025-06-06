@@ -22,21 +22,21 @@ const ProductPage = () => {
       try {
         // Obtener los datos del producto
         const productResponse = await fetch(
-          `http://localhost:8080/api/v1/product/${productId}`
+          `http://94.143.138.55:8080/api/v1/product/${productId}`
         );
         const productData = await productResponse.json();
         setProduct(productData);
 
         // Obtener los datos de la publicación usando el id del producto (asumiendo que es igual al id de la publicación)
         const publicationResponse = await fetch(
-          `http://localhost:8080/api/v1/publication/${productId}`
+          `http://94.143.138.55:8080/api/v1/publication/${productId}`
         );
         const publicationData = await publicationResponse.json();
         setPublication(publicationData);
 
         // Obtener los datos del usuario usando el id del usuario en la publicación
         const userResponse = await fetch(
-          `http://localhost:8080/api/v1/user/id/${publicationData.user.id}`
+          `http://94.143.138.55:8080/api/v1/user/id/${publicationData.user.id}`
         );
         const userData = await userResponse.json();
         setUser(userData);

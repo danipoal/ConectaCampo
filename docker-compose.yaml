@@ -1,22 +1,27 @@
 version: '3.7'
+
 services:
   mysql:
     image: mysql:5.7
+    restart: always  # Para reiniciarse si se cae
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'  # Permite acceso sin contraseña
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: db_conecta_campo
     ports:
-      - "3306:3306"
+      - "3307:3306"  # Cambiado para evitar conflicto local con otro MySQL
     volumes:
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql_data:/var/lib/mysql  # Volumen persistente
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 10s
-      retries: 5
-      start_period: 30s
+      retries: 10       # Más tolerancia
+      start_period: 40s # Más tiempo de arranque
 
   springboot:
+    container_name: springboot
+    restart: always
     build: ./springboot
     depends_on:
       mysql:
@@ -26,11 +31,16 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/db_conecta_campo
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD:  # Dejar vacío para indicar que no hay contraseña
+      SPRING_DATASOURCE_PASSWORD: ""  # Contraseña vacía bien definida
 
   react:
+    container_name: react
+    restart: always
     build: ./react
     ports:
       - "80:80"
     depends_on:
       - springboot
+
+volumes:
+  mysql_data:

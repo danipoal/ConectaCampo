@@ -60,7 +60,7 @@ const UserSettings: React.FC = () => {
       myHeaders.append("Content-Type", "application/json");
       myHeaders.append("Authorization", "Bearer " + token);
 
-      const response = await fetch("http://localhost:8080/api/v1/user/" + ownUserId, {
+      const response = await fetch("http://94.143.138.55:8080/api/v1/user/" + ownUserId, {
         method: "PUT",
         headers: myHeaders,
         body: JSON.stringify(userData),

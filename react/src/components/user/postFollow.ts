@@ -40,7 +40,7 @@ const postFollow = (isFollowing: boolean, currentUser:number|null) => {
 
 
     
-    fetch("http://localhost:8080/api/v1/user/"+myUserId+"/"+ type+ "/"+userPageId, requestOptions)
+    fetch("http://94.143.138.55:8080/api/v1/user/"+myUserId+"/"+ type+ "/"+userPageId, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result)

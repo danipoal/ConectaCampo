@@ -36,7 +36,7 @@ const Profile = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/v1/user/all",
+        "http://94.143.138.55:8080/api/v1/user/all",
         requestOptions
       );
       const result = await response.json();
@@ -77,7 +77,7 @@ const Profile = () => {
   // Función para obtener los productos del usuario basado en userId
   const fetchUserProducts = async (userId: number) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/product/all`);
+      const response = await fetch(`http://94.143.138.55:8080/api/v1/product/all`);
       const products = await response.json();
       // Filtrar los productos que pertenecen a este usuario
       setAllProductsJson(products);
@@ -97,7 +97,7 @@ const Profile = () => {
   const fetchUserPublications = async (products: Product[]) => {
     try {
       const publicationsPromises = products.map((product) =>
-        fetch(`http://localhost:8080/api/v1/publication/${product.publicationId}`)
+        fetch(`http://94.143.138.55:8080/api/v1/publication/${product.publicationId}`)
       );
       
       const publicationsResponses = await Promise.all(publicationsPromises);

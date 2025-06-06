@@ -93,7 +93,7 @@ const Signin = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/auth/login",
+        "http://94.143.138.55:8080/auth/login",
         requestOptions
       );
       if (!response.ok) {
@@ -120,7 +120,7 @@ const Signin = () => {
 
   const fetchAndStoreUserData = async (username: string) => {
     try {
-      const response = await fetch("http://localhost:8080/api/v1/user/all", {
+      const response = await fetch("http://94.143.138.55:8080/api/v1/user/all", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

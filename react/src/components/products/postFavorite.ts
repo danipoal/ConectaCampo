@@ -36,7 +36,7 @@ const postFavorite = (isFavorited: boolean, prodId: number|null) => {
     };
 
     // Construcción de la URL completa para la solicitud, incluyendo los parámetros necesarios
-    const url = `http://localhost:8080/api/v1/publication/${prodId}/${urlType}?userId=${userId}`;
+    const url = `http://94.143.138.55:8080/api/v1/publication/${prodId}/${urlType}?userId=${userId}`;
 
     // Realizar la solicitud POST
     fetch(url, requestOptions)
