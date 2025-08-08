@@ -101,7 +101,7 @@ const Register = () => {
       };
 
       const response = await fetch(
-        "http://94.143.138.55:8080/api/v1/user",
+        "https://api-campo.danipoal.com/api/v1/user",
         requestOptions
       );
       if (!response.ok) {

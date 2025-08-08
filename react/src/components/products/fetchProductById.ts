@@ -9,7 +9,7 @@ const fetchUserById = async (productId:any) => {
 
     try {
       const response = await fetch(
-        "http://94.143.138.55:8080/api/v1/product/" + productId,
+        "https://api-campo.danipoal.com/api/v1/product/" + productId,
         requestOptions
       );
       const result:Product = await response.json();

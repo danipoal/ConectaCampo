@@ -6,7 +6,7 @@ const fetchUserById = async (userId:any) => {
 
     try {
       const response = await fetch(
-        "http://94.143.138.55:8080/api/v1/user/all",
+        "https://api-campo.danipoal.com/api/v1/user/all",
         requestOptions
       );
       const result = await response.json();

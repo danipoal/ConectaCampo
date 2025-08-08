@@ -26,7 +26,7 @@ const Header = () => {
   const fetchUserData = async (username: string) => {
     try {
       const response = await fetch(
-        `http://94.143.138.55:8080/api/v1/user/username/${username}`,
+        `https://api-campo.danipoal.com/api/v1/user/username/${username}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
